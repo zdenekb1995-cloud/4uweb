@@ -90,7 +90,8 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.1rem 2rem 1.1rem 2.8rem;
+  padding: 0 2rem;
+  height: 64px;
   background: linear-gradient(90deg, #0d0025 0%, #050d2e 40%, #001a2e 70%, #0a0020 100%);
   background-size: 300% 300%;
   animation: aurora 8s ease infinite;
@@ -130,7 +131,17 @@ nav {
 }
 .logo span { color: var(--accent-purple); text-shadow: 0 0 18px rgba(168,85,247,0.6); }
 
-nav ul { display: flex; gap: 2.8rem; list-style: none; position: relative; z-index: 1; }
+nav ul {
+  display: flex;
+  flex: 1;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style: none;
+  position: relative;
+  z-index: 1;
+  margin-left: 2rem;
+  gap: 0;
+}
 nav li { animation: nav-link-in 0.5s ease both; }
 nav li:nth-child(1) { animation-delay: 0.1s; }
 nav li:nth-child(2) { animation-delay: 0.2s; }
@@ -616,9 +627,67 @@ footer strong { color: var(--accent-cyan); font-family: 'Orbitron', monospace; f
 *, *::before, *::after { cursor: none !important; }
 #meteor-cursor { position: fixed; pointer-events: none; z-index: 99999; top: 0; left: 0; }
 
-  nav { padding: 1rem 1.2rem 1rem 1.5rem; }
-  nav ul { gap: 1.2rem; }
-  nav a { font-size: 0.78rem; letter-spacing: 1px; }
+/* Hamburger button */
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px; height: 40px;
+  cursor: none !important;
+  background: none; border: none;
+  position: relative; z-index: 2;
+  padding: 4px;
+}
+.nav-burger span {
+  display: block;
+  width: 100%; height: 2px;
+  background: var(--accent-cyan);
+  border-radius: 2px;
+  transition: transform 0.35s ease, opacity 0.25s ease, width 0.3s ease;
+  transform-origin: center;
+  box-shadow: 0 0 6px rgba(0,229,255,0.5);
+}
+.nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; width: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile nav overlay */
+@media (max-width: 860px) {
+  .nav-burger { display: flex; }
+
+  nav ul {
+    position: fixed;
+    top: 64px; left: 0; right: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    margin: 0;
+    background: linear-gradient(180deg, #050d2e 0%, #03050f 100%);
+    border-bottom: 1px solid rgba(0,229,255,0.22);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    padding: 0;
+  }
+  nav ul.open {
+    max-height: 400px;
+    padding: 1rem 0;
+  }
+  nav li {
+    width: 100%;
+    text-align: center;
+    animation: none;
+  }
+  nav li a {
+    display: block;
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    border-bottom: 1px solid rgba(0,229,255,0.07);
+  }
+  nav li:last-child a { border-bottom: none; }
   .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .section-inner { padding: 5rem 1.5rem; }
   .pricing-grid { grid-template-columns: 1fr; }
@@ -628,7 +697,6 @@ footer strong { color: var(--accent-cyan); font-family: 'Orbitron', monospace; f
   .form-row { grid-template-columns: 1fr; }
 }
 @media (max-width: 480px) {
-  nav ul { gap: 0.8rem; }
   .logo { font-size: 1.2rem; }
   h1 { font-size: 2.5rem; }
 }
@@ -648,13 +716,16 @@ footer strong { color: var(--accent-cyan); font-family: 'Orbitron', monospace; f
   <div class="nav-glow-left"></div>
   <div class="nav-glow-right"></div>
   <a href="#" class="logo">4U<span>web</span></a>
-  <ul>
-    <li><a href="#prace"><span class="nav-dot"></span>Práce</a></li>
-    <li><a href="#pro-koho">Pro koho</a></li>
-    <li><a href="#ceny">Ceny</a></li>
-    <li><a href="#objednavka">Objednávka</a></li>
-    <li><a href="#kontakt">Kontakt</a></li>
+  <ul id="nav-menu">
+    <li><a href="#prace" class="nav-link"><span class="nav-dot"></span>Práce</a></li>
+    <li><a href="#pro-koho" class="nav-link">Pro koho</a></li>
+    <li><a href="#ceny" class="nav-link">Ceny</a></li>
+    <li><a href="#objednavka" class="nav-link">Objednávka</a></li>
+    <li><a href="#kontakt" class="nav-link">Kontakt</a></li>
   </ul>
+  <button class="nav-burger" id="nav-burger" aria-label="Otevřít menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- Hero -->
@@ -1937,6 +2008,21 @@ footer strong { color: var(--accent-cyan); font-family: 'Orbitron', monospace; f
   }
   loop();
 })();
+// Hamburger menu
+(function() {
+  var burger = document.getElementById('nav-burger');
+  var menu = document.getElementById('nav-menu');
+  burger.addEventListener('click', function() {
+    burger.classList.toggle('open');
+    menu.classList.toggle('open');
+  });
+  // Close menu on link click
+  document.querySelectorAll('.nav-link').forEach(function(link) {
+    link.addEventListener('click', function() {
+      burger.classList.remove('open');
+      menu.classList.remove('open');
+    });
+  });
+})();
 </script>
-</body>
 </html>
