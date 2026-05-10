@@ -467,7 +467,25 @@ footer strong { color: var(--accent-cyan); font-family: 'Orbitron', monospace; f
 .sidebar-step:last-child { margin-bottom: 0; }
 .step-num { width: 24px; height: 24px; background: rgba(0,229,255,0.12); border: 1px solid rgba(0,229,255,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; color: var(--accent-cyan); flex-shrink: 0; }
 .step-text { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; font-weight: 300; padding-top: 2px; }
-/* Check-in system card */
+/* Pro koho */
+#pro-koho { background: rgba(7,13,31,0.6); }
+.prokoho-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; margin-bottom: 2rem; }
+.prokoho-card {
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: 12px; padding: 1.6rem 1.4rem;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+.prokoho-card:hover { transform: translateY(-6px); border-color: rgba(0,229,255,0.45); box-shadow: 0 18px 40px rgba(0,0,0,0.4), 0 0 18px rgba(0,229,255,0.08); }
+.prokoho-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+.prokoho-title { font-family: 'Orbitron', monospace; font-size: 0.88rem; font-weight: 700; color: var(--star-white); margin-bottom: 0.6rem; letter-spacing: 0.5px; line-height: 1.3; }
+.prokoho-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem; font-weight: 300; }
+.prokoho-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.prokoho-tag { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; color: var(--accent-cyan); background: rgba(0,229,255,0.08); border: 1px solid rgba(0,229,255,0.2); border-radius: 50px; padding: 0.22rem 0.65rem; }
+.prokoho-note { text-align: center; font-size: 0.95rem; color: var(--text-muted); padding: 1.2rem 2rem; background: rgba(0,229,255,0.04); border: 1px dashed rgba(0,229,255,0.18); border-radius: 10px; line-height: 1.7; }
+.prokoho-note-icon { color: var(--accent-cyan); margin-right: 0.4rem; }
+.prokoho-link { color: var(--accent-cyan); text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(0,229,255,0.3); transition: border-color 0.2s; }
+.prokoho-link:hover { border-color: var(--accent-cyan); }
+
 .checkin-card {
   display: grid;
   grid-template-columns: 1fr 340px;
@@ -632,6 +650,7 @@ footer strong { color: var(--accent-cyan); font-family: 'Orbitron', monospace; f
   <a href="#" class="logo">4U<span>web</span></a>
   <ul>
     <li><a href="#prace"><span class="nav-dot"></span>Práce</a></li>
+    <li><a href="#pro-koho">Pro koho</a></li>
     <li><a href="#ceny">Ceny</a></li>
     <li><a href="#objednavka">Objednávka</a></li>
     <li><a href="#kontakt">Kontakt</a></li>
@@ -663,6 +682,67 @@ footer strong { color: var(--accent-cyan); font-family: 'Orbitron', monospace; f
         <path d="M4 7L10 13L16 7" stroke="#00e5ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </a>
+  </div>
+</section>
+
+<!-- Pro koho -->
+<section id="pro-koho">
+  <div class="section-inner">
+    <div class="section-label">✦ Pro koho tvořím</div>
+    <div class="divider"></div>
+    <h2 class="section-title">Weby pro každé odvětví</h2>
+    <p class="section-desc">Ať jste řemeslník, pronajímatel, poradce nebo poskytovatel služeb — web na míru zvýší vaši důvěryhodnost a přivede nové zákazníky.</p>
+    <div class="prokoho-grid">
+
+      <div class="prokoho-card">
+        <div class="prokoho-icon">🔨</div>
+        <div class="prokoho-title">Řemeslníci</div>
+        <div class="prokoho-desc">Instalatéři, elektrikáři, tesaři, zedníci, malíři, truhláři a další řemesla. Web s referencemi, fotogalerií prací a poptávkovým formulářem.</div>
+        <div class="prokoho-tags">
+          <span class="prokoho-tag">Galerie prací</span>
+          <span class="prokoho-tag">Poptávkový formulář</span>
+          <span class="prokoho-tag">Reference</span>
+        </div>
+      </div>
+
+      <div class="prokoho-card">
+        <div class="prokoho-icon">🏠</div>
+        <div class="prokoho-title">Ubytování & pronájem</div>
+        <div class="prokoho-desc">Apartmány, penziony, chaty, chalupy. Web s rezervačním systémem, ceníkem, fotogalerií a napojením na Booking.com nebo Airbnb.</div>
+        <div class="prokoho-tags">
+          <span class="prokoho-tag">Online rezervace</span>
+          <span class="prokoho-tag">Booking / Airbnb</span>
+          <span class="prokoho-tag">Check-in systém</span>
+        </div>
+      </div>
+
+      <div class="prokoho-card">
+        <div class="prokoho-icon">⚙️</div>
+        <div class="prokoho-title">Služby & provozovny</div>
+        <div class="prokoho-desc">Kadeřnictví, autoservisy, čistírny, zahradníci, úklidové firmy, fotografové. Prezentace s ceníkem, objednávkovým formulářem a mapou.</div>
+        <div class="prokoho-tags">
+          <span class="prokoho-tag">Ceník služeb</span>
+          <span class="prokoho-tag">Objednávkový formulář</span>
+          <span class="prokoho-tag">Mapa provozovny</span>
+        </div>
+      </div>
+
+      <div class="prokoho-card">
+        <div class="prokoho-icon">💡</div>
+        <div class="prokoho-title">Poradenství & odborníci</div>
+        <div class="prokoho-desc">Koučové, terapeuti, finanční poradci, právníci, účetní, lékaři. Profesionální web budující důvěru s možností online konzultací.</div>
+        <div class="prokoho-tags">
+          <span class="prokoho-tag">Blog / články</span>
+          <span class="prokoho-tag">Online konzultace</span>
+          <span class="prokoho-tag">Certifikáty & reference</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="prokoho-note">
+      <span class="prokoho-note-icon">✦</span>
+      Vaše odvětví tady není? <a href="#kontakt" class="prokoho-link">Napište mi</a> — tvořím weby pro všechny typy podnikání po celé České republice.
+    </div>
   </div>
 </section>
 
@@ -1011,6 +1091,10 @@ footer strong { color: var(--accent-cyan); font-family: 'Orbitron', monospace; f
               <option>Prezentační web – Starter (od 8 000 Kč)</option>
               <option>Firemní web – Business (od 18 000 Kč)</option>
               <option>Web Premium / na míru</option>
+              <option>Web pro řemeslníka</option>
+              <option>Web pro ubytování / pronájem</option>
+              <option>Web pro služby / provozovnu</option>
+              <option>Web pro poradenství / odborníka</option>
             </optgroup>
             <optgroup label="Doplňkové služby">
               <option>Vizualizace &amp; grafika</option>
