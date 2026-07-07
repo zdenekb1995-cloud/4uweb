@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt — nezávazná poptávka | 4uweb</title>
+<meta name="description" content="Kontaktujte studio 4uweb: telefon 725 396 158, e-mail 4uweb@seznam.cz. První konzultace je zdarma a nezávazná.">
+<meta name="keywords" content="tvorba webových stránek, e-shop na míru, web pro firmy, restaurační systém, správa apartmánů, svatební web, online check-in, SEO">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Kontakt — nezávazná poptávka | 4uweb">
+<meta property="og:description" content="Kontaktujte studio 4uweb: telefon 725 396 158, e-mail 4uweb@seznam.cz. První konzultace je zdarma a nezávazná.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="cs_CZ">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ================= NAČÍTACÍ STRÁNKA ================= -->
+<div id="loader" aria-hidden="true">
+  <div class="loader-box">
+    <div class="loader-logo">4<b>u</b>web<span>.</span></div>
+    <div class="loader-bar"><i></i></div>
+    <div class="loader-txt">Načítání…</div>
+  </div>
+</div>
+
+<!-- ================= NAVIGACE ================= -->
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html">4<b>u</b>web<span>.</span></a>
+    <nav>
+      <ul class="menu" id="menu">
+        <li><a href="index.html">Domů</a></li>
+        <li><a href="sluzby.html">Služby</a></li>
+        <li><a href="projekty.html">Naše projekty</a></li>
+        <li><a href="reference.html">Reference</a></li>
+        <li><a href="kontakt.html" class="active">Kontakt</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" href="kontakt.html">Nezávazná poptávka</a>
+    <button class="burger" id="burger" aria-label="Otevřít menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">Kontakt</span>
+      <h2>Pojďme se pobavit o vašem projektu</h2>
+      <p class="lead" style="margin-top:.8rem">Ozvěte se nám telefonicky, e-mailem, nebo vyplňte poptávkový formulář. Odpovídáme rychle.</p>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <a class="contact-line" href="tel:+420725396158">
+            <div class="ci">📞</div>
+            <div><b>725 396 158</b><span>Po–Pá 9:00–18:00 · rádi vám zavoláme zpět</span></div>
+          </a>
+          <a class="contact-line" href="mailto:4uweb@seznam.cz">
+            <div class="ci">✉️</div>
+            <div><b>4uweb@seznam.cz</b><span>Odpovídáme do 24 hodin</span></div>
+          </a>
+          <div class="contact-line">
+            <div class="ci">💬</div>
+            <div><b>Konzultace zdarma</b><span>První schůzka je vždy nezávazná</span></div>
+          </div>
+          <div class="contact-line">
+            <div class="ci">🇨🇿</div>
+            <div><b>Působíme po celé ČR</b><span>Osobně i online</span></div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <h3 style="margin-bottom:.3rem">Nezávazná poptávka</h3>
+          <p style="color:var(--ink-soft);font-size:.9rem">Vyplňte formulář a my se vám ozveme.</p>
+          <form id="poptavka">
+            <div class="row">
+              <div><label for="jmeno">Jméno *</label><input id="jmeno" required placeholder="Jan Novák"></div>
+              <div><label for="tel">Telefon</label><input id="tel" type="tel" placeholder="+420 …"></div>
+            </div>
+            <label for="email">E-mail *</label>
+            <input id="email" type="email" required placeholder="vas@email.cz">
+            <label for="typ">Co potřebujete?</label>
+            <select id="typ">
+              <option>Webové stránky pro podnikání</option>
+              <option>E-shop na míru (Fly-shopX)</option>
+              <option>Systém pro restauraci (RestoraX)</option>
+              <option>Správa apartmánů (CleanFlow)</option>
+              <option>Svatební web</option>
+              <option>Online check-in formulář</option>
+              <option>Něco jiného</option>
+            </select>
+            <label for="zprava">Zpráva</label>
+            <textarea id="zprava" placeholder="Popište nám stručně svůj záměr…"></textarea>
+            <button type="submit" class="btn btn-primary" style="margin-top:1.1rem;border:0;cursor:pointer;font-family:var(--body)">Odeslat poptávku →</button>
+            <div class="form-ok" id="formOk">✅ Děkujeme! Vaše poptávka byla odeslána. Ozveme se vám co nejdříve.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= PATIČKA ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="index.html">4<b>u</b>web<span>.</span></a>
+        <p style="margin-top:.8rem;font-size:.9rem;max-width:32ch">Tvoříme weby, e-shopy a chytré systémy, které pomáhají českým firmám růst.</p>
+      </div>
+      <div>
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="index.html">Domů</a></li>
+          <li><a href="sluzby.html">Služby</a></li>
+          <li><a href="projekty.html">Naše projekty</a></li>
+          <li><a href="reference.html">Reference</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Naše projekty</h4>
+        <ul>
+          <li><a href="https://www.restorax.cz" target="_blank" rel="noopener">RestoraX</a></li>
+          <li><a href="https://www.cleanflow.cz" target="_blank" rel="noopener">CleanFlow</a></li>
+          <li><a href="projekty.html">Fly-shopX <small>(brzy)</small></a></li>
+          <li><a href="projekty.html">Svatební světy</a></li>
+          <li><a href="projekty.html">Online check-in</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="tel:+420725396158">725 396 158</a></li>
+          <li><a href="mailto:4uweb@seznam.cz">4uweb@seznam.cz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 4uweb · Všechna práva vyhrazena</span>
+      <span><a href="#" onclick="showCookies();return false">Nastavení cookies</a> · Zásady ochrany osobních údajů</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= COOKIES ================= -->
+<div class="cookies" id="cookies" role="dialog" aria-label="Souhlas s cookies">
+  <p>🍪 <b>Používáme cookies.</b> Pomáhají nám web vylepšovat a měřit návštěvnost. Kliknutím na „Přijmout vše" souhlasíte s jejich používáním. Svou volbu můžete kdykoli změnit v patičce webu.</p>
+  <div class="crow">
+    <button class="cbtn acc" onclick="cookieChoice(true)">Přijmout vše</button>
+    <button class="cbtn dec" onclick="cookieChoice(false)">Pouze nezbytné</button>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
